@@ -3,7 +3,7 @@
     {
       "text": "%spark.conf \nSPARK_HOME /home/sscd/Programme/spark/spark-3.1.1-bin-hadoop3.2\n",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 19:21:10.073",
+      "dateUpdated": "2022-04-10 19:37:57.932",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -22,18 +22,24 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {},
       "progressUpdateIntervalMs": 500,
       "jobName": "paragraph_1649438428435_149765160",
       "id": "paragraph_1649438428435_149765160",
       "dateCreated": "2022-04-08 19:20:28.435",
-      "status": "READY"
+      "dateStarted": "2022-04-10 19:37:57.959",
+      "dateFinished": "2022-04-10 19:37:57.979",
+      "status": "FINISHED"
     },
     {
       "text": "\n#https://docs.microsoft.com/en-us/azure/databricks/_static/notebooks/structured-streaming-python.html",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 21:15:21.831",
+      "dateUpdated": "2022-04-09 15:43:34.879",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -58,13 +64,55 @@
       "jobName": "paragraph_1649445302770_457077872",
       "id": "paragraph_1649445302770_457077872",
       "dateCreated": "2022-04-08 21:15:02.770",
-      "status": "READY"
+      "dateStarted": "2022-04-09 15:43:34.925",
+      "status": "ABORT"
     },
     {
-      "text": "%spark.ipyspark\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import TimestampType, StringType, StructType, StructField, IntegerType, LongType\nfrom pyspark.sql.functions import col\n\n# Explicitly set schema\nschema \u003d StructType([ \n                      StructField(\"Datefirstseen\", TimestampType(), True),\n                      StructField(\"SrcIPAddr\", StringType(), True),\n                      StructField(\"DstIPAddr\", StringType(), True),\n                      StructField(\"Datefirstseenunix\", IntegerType(), True),\n                      StructField(\"Duration\", IntegerType(), True),\n                      StructField(\"Proto\", StringType(), True),\n                      StructField(\"SrcPt\", IntegerType(), True),\n                      StructField(\"DstPt\", IntegerType(), True),\n                      StructField(\"Packets\", IntegerType(), True),\n                      StructField(\"Bytes\", IntegerType(), True),\n                      ])\n\n# all files in this directory will be read in one at a time, simulating streaming\ninputFolder \u003d \u0027file:///home/sscd/Code/src/StreamingTest/infostealer_flows_processed_wo_header.csv\u0027\n\nstaticInputDF \u003d (\n  spark\n    .read\n    .schema(schema)\n    .csv(inputFolder)\n)\n\nz.show(staticInputDF)",
+      "text": "%pyspark\nprint(spark)",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 19:37:38.748",
+      "dateUpdated": "2022-04-10 19:38:00.408",
       "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cpyspark.sql.session.SparkSession object at 0x7f46aabe9130\u003e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1649510572259_1151888917",
+      "id": "paragraph_1649510572259_1151888917",
+      "dateCreated": "2022-04-09 15:22:52.259",
+      "dateStarted": "2022-04-10 19:38:00.433",
+      "dateFinished": "2022-04-10 19:39:25.963",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import TimestampType, StringType, StructType, StructField, IntegerType, LongType\nfrom pyspark.sql.functions import col\n\n# Explicitly set schema\nschema \u003d StructType([ \n                      StructField(\"Datefirstseen\", TimestampType(), True),\n                      StructField(\"SrcIPAddr\", StringType(), True),\n                      StructField(\"DstIPAddr\", StringType(), True),\n                      StructField(\"Datefirstseenunix\", IntegerType(), True),\n                      StructField(\"Duration\", IntegerType(), True),\n                      StructField(\"Proto\", StringType(), True),\n                      StructField(\"SrcPt\", IntegerType(), True),\n                      StructField(\"DstPt\", IntegerType(), True),\n                      StructField(\"Packets\", IntegerType(), True),\n                      StructField(\"Bytes\", IntegerType(), True),\n                      ])\n\n# all files in this directory will be read in one at a time, simulating streaming\ninputFolder \u003d \u0027file:///home/sscd/Code/src/StreamingTest/infostealer_flows_processed_wo_header.csv\u0027\n\nstaticInputDF \u003d (\n  spark\n    .read\n    .schema(schema)\n    .csv(inputFolder)\n)\n\nz.show(staticInputDF)",
+      "user": "anonymous",
+      "dateUpdated": "2022-04-10 19:43:41.519",
+      "progress": 100,
       "config": {
         "editorSetting": {
           "language": "python",
@@ -107,13 +155,36 @@
                   },
                   "updated": false,
                   "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
                 }
               },
-              "commonSetting": {}
-            }
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Datefirstseen",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "SrcIPAddr",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
           }
         },
-        "enabled": true
+        "enabled": true,
+        "editorHide": false
       },
       "settings": {
         "params": {},
@@ -137,7 +208,7 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d21"
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d55"
             }
           ],
           "interpreterSettingId": "spark"
@@ -147,14 +218,14 @@
       "jobName": "paragraph_1649438470314_1501087870",
       "id": "paragraph_1649438470314_1501087870",
       "dateCreated": "2022-04-08 19:21:10.314",
-      "dateStarted": "2022-04-08 19:37:35.542",
-      "dateFinished": "2022-04-08 19:37:36.991",
+      "dateStarted": "2022-04-10 19:27:10.530",
+      "dateFinished": "2022-04-10 19:27:12.944",
       "status": "FINISHED"
     },
     {
       "text": "%spark.ipyspark\nfrom pyspark.sql.functions import *      # for window() function\n\nstaticCountsDF \u003d (\n  staticInputDF\n    .groupBy(\n       staticInputDF.SrcIPAddr,\n       window(staticInputDF.Datefirstseen, \"1 day\"))    \n    .sum(\u0027Bytes\u0027).withColumnRenamed(\"sum(Bytes)\", \"sum_bytes\")\n)\nstaticCountsDF.cache()\n\n# Register the DataFrame as table \u0027static_counts\u0027\nstaticCountsDF.createOrReplaceTempView(\"static_counts\")\nstaticCountsDF.printSchema()",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 21:12:03.606",
+      "dateUpdated": "2022-04-10 19:27:20.692",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -188,15 +259,15 @@
       "jobName": "paragraph_1649438756272_1938677883",
       "id": "paragraph_1649438756272_1938677883",
       "dateCreated": "2022-04-08 19:25:56.272",
-      "dateStarted": "2022-04-08 21:12:03.626",
-      "dateFinished": "2022-04-08 21:12:04.753",
+      "dateStarted": "2022-04-10 19:27:20.704",
+      "dateFinished": "2022-04-10 19:27:21.361",
       "status": "FINISHED"
     },
     {
       "text": "%sql\nselect  SrcIPAddr, sum(sum_bytes) as total_bytes from static_counts group by SrcIPAddr",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 21:12:10.282",
-      "progress": 20,
+      "dateUpdated": "2022-04-10 19:43:44.536",
+      "progress": 25,
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -270,7 +341,7 @@
         "msg": [
           {
             "type": "TABLE",
-            "data": "SrcIPAddr\ttotal_bytes\n31.220.16.3\t975\n31.170.165.177\t2104\n93.189.45.35\t1515\n40.118.103.7\t96\n13.80.12.54\t672\n52.18.63.80\t44942\n2.16.153.96\t576\n31.170.163.130\t1161\n195.234.4.67\t837\n66.220.9.50\t1543\n31.170.161.56\t1324\n2.16.4.203\t1152\n8.8.4.4\t12700\n81.19.78.85\t1122\n192.168.56.12\t140358\n216.146.43.70\t364\n31.170.164.212\t1053\n8.8.8.8\t9253\n108.179.196.24\t1122\n"
+            "data": "SrcIPAddr\ttotal_bytes\n31.220.16.3\t975\n2.16.4.203\t1152\n108.179.196.24\t1122\n216.146.43.70\t364\n31.170.163.130\t1161\n13.80.12.54\t672\n81.19.78.85\t1122\n31.170.161.56\t1324\n192.168.56.12\t140358\n8.8.4.4\t12700\n52.18.63.80\t44942\n66.220.9.50\t1543\n31.170.164.212\t1053\n93.189.45.35\t1515\n8.8.8.8\t9253\n31.170.165.177\t2104\n2.16.153.96\t576\n40.118.103.7\t96\n195.234.4.67\t837\n"
           }
         ]
       },
@@ -283,19 +354,10 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d137"
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d56"
             },
             {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d138"
-            },
-            {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d139"
-            },
-            {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d140"
-            },
-            {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d141"
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d57"
             }
           ],
           "interpreterSettingId": "spark"
@@ -305,15 +367,15 @@
       "jobName": "paragraph_1649441508537_632796894",
       "id": "paragraph_1649441508537_632796894",
       "dateCreated": "2022-04-08 20:11:48.537",
-      "dateStarted": "2022-04-08 21:12:10.304",
-      "dateFinished": "2022-04-08 21:12:23.252",
+      "dateStarted": "2022-04-10 19:27:26.050",
+      "dateFinished": "2022-04-10 19:27:28.120",
       "status": "FINISHED"
     },
     {
       "text": "%sql\nselect SrcIPAddr, date_format(window.end, \"MMM-dd HH:mm\") as time, sum_bytes from static_counts order by time, SrcIPAddr",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 21:13:52.322",
-      "progress": 89,
+      "dateUpdated": "2022-04-10 19:45:13.071",
+      "progress": 0,
       "config": {
         "editorSetting": {
           "language": "sql",
@@ -329,7 +391,7 @@
             "graph": {
               "mode": "multiBarChart",
               "height": 300.0,
-              "optionOpen": false,
+              "optionOpen": true,
               "setting": {
                 "table": {
                   "tableGridState": {},
@@ -339,7 +401,7 @@
                       "time": "string",
                       "sum_bytes": "string"
                     },
-                    "updated": true
+                    "updated": false
                   },
                   "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
                   "tableOptionValue": {
@@ -414,7 +476,7 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d143"
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d58"
             }
           ],
           "interpreterSettingId": "spark"
@@ -424,8 +486,8 @@
       "jobName": "paragraph_1649444792849_1445292767",
       "id": "paragraph_1649444792849_1445292767",
       "dateCreated": "2022-04-08 21:06:32.849",
-      "dateStarted": "2022-04-08 21:12:45.555",
-      "dateFinished": "2022-04-08 21:12:50.030",
+      "dateStarted": "2022-04-10 19:27:59.729",
+      "dateFinished": "2022-04-10 19:28:00.467",
       "status": "FINISHED"
     },
     {
@@ -449,15 +511,6 @@
       "settings": {
         "params": {},
         "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "+--------------+------------------------------------------+----------+\n|SrcIPAddr     |window                                    |sum(Bytes)|\n+--------------+------------------------------------------+----------+\n|52.18.63.80   |{2016-09-12 19:00:00, 2016-09-12 20:00:00}|9460      |\n|195.234.4.67  |{2016-09-13 04:00:00, 2016-09-13 05:00:00}|837       |\n|31.170.161.56 |{2016-09-13 03:00:00, 2016-09-13 04:00:00}|1324      |\n|192.168.56.12 |{2016-09-13 04:00:00, 2016-09-13 05:00:00}|10045     |\n|8.8.8.8       |{2016-09-12 19:00:00, 2016-09-12 20:00:00}|1785      |\n|31.170.165.177|{2016-09-12 19:00:00, 2016-09-12 20:00:00}|2104      |\n|192.168.56.12 |{2016-09-13 06:00:00, 2016-09-13 07:00:00}|8647      |\n|192.168.56.12 |{2016-09-12 19:00:00, 2016-09-12 20:00:00}|20746     |\n|8.8.4.4       |{2016-09-13 11:00:00, 2016-09-13 12:00:00}|372       |\n|31.170.164.212|{2016-09-12 22:00:00, 2016-09-12 23:00:00}|1053      |\n|52.18.63.80   |{2016-09-12 22:00:00, 2016-09-12 23:00:00}|3876      |\n|8.8.8.8       |{2016-09-12 10:00:00, 2016-09-12 11:00:00}|1237      |\n|52.18.63.80   |{2016-09-13 11:00:00, 2016-09-13 12:00:00}|5136      |\n|8.8.8.8       |{2016-09-13 07:00:00, 2016-09-13 08:00:00}|234       |\n|8.8.4.4       |{2016-09-12 18:00:00, 2016-09-12 19:00:00}|1626      |\n|8.8.8.8       |{2016-09-13 06:00:00, 2016-09-13 07:00:00}|290       |\n|66.220.9.50   |{2016-09-12 18:00:00, 2016-09-12 19:00:00}|1543      |\n|93.189.45.35  |{2016-09-13 02:00:00, 2016-09-13 03:00:00}|1515      |\n|52.18.63.80   |{2016-09-13 06:00:00, 2016-09-13 07:00:00}|3956      |\n|8.8.4.4       |{2016-09-13 03:00:00, 2016-09-13 04:00:00}|1365      |\n+--------------+------------------------------------------+----------+\nonly showing top 20 rows\n\n"
-          }
-        ]
       },
       "apps": [],
       "runtimeInfos": {
@@ -552,15 +605,6 @@
         "params": {},
         "forms": {}
       },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TABLE",
-            "data": "SrcIPAddr\n52.18.63.80\n195.234.4.67\n31.170.161.56\n192.168.56.12\n8.8.8.8\n31.170.165.177\n192.168.56.12\n192.168.56.12\n8.8.4.4\n31.170.164.212\n52.18.63.80\n8.8.8.8\n52.18.63.80\n8.8.8.8\n8.8.4.4\n8.8.8.8\n66.220.9.50\n93.189.45.35\n52.18.63.80\n8.8.4.4\n8.8.8.8\n8.8.8.8\n8.8.8.8\n192.168.56.12\n8.8.8.8\n8.8.8.8\n13.80.12.54\n192.168.56.12\n192.168.56.12\n40.118.103.7\n192.168.56.12\n52.18.63.80\n8.8.8.8\n108.179.196.24\n8.8.4.4\n8.8.4.4\n192.168.56.12\n8.8.4.4\n52.18.63.80\n192.168.56.12\n8.8.4.4\n52.18.63.80\n192.168.56.12\n13.80.12.54\n31.170.163.130\n8.8.8.8\n8.8.8.8\n192.168.56.12\n2.16.153.96\n8.8.8.8\n13.80.12.54\n192.168.56.12\n216.146.43.70\n13.80.12.54\n192.168.56.12\n192.168.56.12\n52.18.63.80\n13.80.12.54\n31.220.16.3\n2.16.4.203\n8.8.8.8\n8.8.4.4\n192.168.56.12\n81.19.78.85\n40.118.103.7\n8.8.4.4\n52.18.63.80\n8.8.8.8\n13.80.12.54\n13.80.12.54\n"
-          }
-        ]
-      },
       "apps": [],
       "runtimeInfos": {
         "jobUrl": {
@@ -597,14 +641,32 @@
       "status": "FINISHED"
     },
     {
-      "text": "%spark.ipyspark\n",
+      "title": "Now streaming",
+      "text": "%pyspark\nfrom pyspark.sql.functions import *\nfrom pyspark.sql.types import TimestampType, StringType, StructType, StructField, IntegerType, LongType\nfrom pyspark.sql.functions import col\n\nschema \u003d StructType([ \n                      StructField(\"ctr\", IntegerType(), True),\n                      StructField(\"Datefirstseen\", TimestampType(), True),\n                      StructField(\"SrcIPAddr\", StringType(), True),\n                      StructField(\"DstIPAddr\", StringType(), True),\n                      StructField(\"Datefirstseenunix\", IntegerType(), True),\n                      StructField(\"Duration\", IntegerType(), True),\n                      StructField(\"Proto\", StringType(), True),\n                      StructField(\"SrcPt\", IntegerType(), True),\n                      StructField(\"DstPt\", IntegerType(), True),\n                      StructField(\"Packets\", IntegerType(), True),\n                      StructField(\"Bytes\", IntegerType(), True),\n                      ])\n# all files in this directory will be read in one at a time, simulating streaming\n#inputFolder \u003d \u0027file:///home/sscd/Code/src/StreamingTest/infostealer_flows_processed_wo_header.csv\u0027\ninputFolder \u003d \u0027file:///home/sscd/Programme/zeppelin-0.10.0-bin-netinst/bin/tmp/\u0027\n\n# Similar to definition of staticInputDF above, just using `readStream` instead of `read`\nstreamingInputDF \u003d (\n  spark\n    .readStream                       \n    .schema(schema)               # Set the schema of the JSON data\n    .option(\"maxFilesPerTrigger\", 1)  # Treat a sequence of files as a stream by picking one file at a time\n    .csv(inputFolder)\n)\n\n\n# Same query as staticInputDF\nstreamingCountsDF \u003d (                 \n  streamingInputDF\n    .groupBy(\n      streamingInputDF.SrcIPAddr, \n      window(streamingInputDF.Datefirstseen, \"30 seconds\"))\n    .sum(\u0027Bytes\u0027).withColumnRenamed(\"sum(Bytes)\", \"sum_bytes\")\n)\n\n#avgSignalDF \u003d flows_streaming.withWatermark(\"Datefirstseen\", \"5 seconds\").groupBy(window(\"Datefirstseen\",\"30 seconds\"),\"SrcIPAddr\").sum(\"Duration\",\"Packets\",\"Bytes\")\n\n# Is this DF actually a streaming DF?\nstreamingCountsDF.isStreaming\n\n#spark.conf.set(\"spark.sql.shuffle.partitions\", \"2\")  # keep the size of shuffles small\n\nquery \u003d (\n  streamingCountsDF\n    .writeStream.format(\"memory\")\\\n    .queryName(\"sumbytes\")\\\n    .outputMode(\"complete\")\\\n    .option(\"checkpointLocation\",\"file:///home/sscd/Programme/zeppelin-0.10.0-bin-netinst/bin/checkpoint_zep/\")\\\n    .start()\n)\n\n#if you dont get any output delete the checkpoint location",
       "user": "anonymous",
-      "dateUpdated": "2022-04-08 19:38:41.094",
+      "dateUpdated": "2022-04-10 19:59:29.439",
       "progress": 0,
-      "config": {},
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
       },
       "apps": [],
       "runtimeInfos": {},
@@ -612,7 +674,265 @@
       "jobName": "paragraph_1649439521093_881053488",
       "id": "paragraph_1649439521093_881053488",
       "dateCreated": "2022-04-08 19:38:41.093",
-      "status": "READY"
+      "dateStarted": "2022-04-10 19:59:29.451",
+      "dateFinished": "2022-04-10 19:59:30.285",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nquery.stop()",
+      "user": "anonymous",
+      "dateUpdated": "2022-04-10 19:58:52.007",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1649610948813_708835318",
+      "id": "paragraph_1649610948813_708835318",
+      "dateCreated": "2022-04-10 19:15:48.814",
+      "dateStarted": "2022-04-10 19:58:52.020",
+      "dateFinished": "2022-04-10 19:58:52.293",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect  SrcIPAddr, sum(sum_bytes) as total_bytes from sumbytes group by SrcIPAddr\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-04-10 20:00:53.283",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "SrcIPAddr": "string",
+                      "total_bytes": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [
+                {
+                  "name": "SrcIPAddr",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "total_bytes",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "SrcIPAddr\ttotal_bytes\n13.80.12.54\t192\n31.220.16.3\t975\n8.8.8.8\t3219\n192.168.56.12\t65566\n52.18.63.80\t11820\n8.8.4.4\t3318\n66.220.9.50\t1543\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d592"
+            },
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d593"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1649610570154_2037309932",
+      "id": "paragraph_1649610570154_2037309932",
+      "dateCreated": "2022-04-10 19:09:30.154",
+      "dateStarted": "2022-04-10 20:00:53.296",
+      "dateFinished": "2022-04-10 20:00:53.481",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%sql\nselect SrcIPAddr, date_format(window.end, \"MMM-dd HH:mm\") as time, sum_bytes from sumbytes order by time, SrcIPAddr\n",
+      "user": "anonymous",
+      "dateUpdated": "2022-04-10 20:01:20.199",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "SrcIPAddr": "string",
+                      "time": "string",
+                      "sum_bytes": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "time",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "SrcIPAddr",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "sum_bytes",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "SrcIPAddr\ttime\tsum_bytes\n13.80.12.54\tSep-12 10:36\t96\n192.168.56.12\tSep-12 10:36\t2701\n192.168.56.12\tSep-12 10:36\t947\n31.220.16.3\tSep-12 10:36\t903\n52.18.63.80\tSep-12 10:36\t2382\n8.8.4.4\tSep-12 10:36\t465\n8.8.8.8\tSep-12 10:36\t275\n8.8.8.8\tSep-12 10:36\t279\n192.168.56.12\tSep-12 10:37\t1084\n192.168.56.12\tSep-12 10:37\t1900\n31.220.16.3\tSep-12 10:37\t72\n52.18.63.80\tSep-12 10:37\t1140\n8.8.8.8\tSep-12 10:37\t248\n8.8.8.8\tSep-12 10:37\t186\n192.168.56.12\tSep-12 10:42\t29\n8.8.8.8\tSep-12 10:42\t104\n192.168.56.12\tSep-12 10:43\t201\n192.168.56.12\tSep-12 10:51\t43\n192.168.56.12\tSep-12 10:51\t201\n8.8.8.8\tSep-12 10:51\t145\n192.168.56.12\tSep-12 10:55\t744\n192.168.56.12\tSep-12 11:03\t201\n192.168.56.12\tSep-12 11:06\t43\n8.8.8.8\tSep-12 11:06\t145\n192.168.56.12\tSep-12 11:15\t945\n192.168.56.12\tSep-12 11:21\t43\n8.8.8.8\tSep-12 11:21\t145\n192.168.56.12\tSep-12 11:27\t201\n13.80.12.54\tSep-12 18:29\t96\n192.168.56.12\tSep-12 18:29\t2396\n192.168.56.12\tSep-12 18:29\t16563\n52.18.63.80\tSep-12 18:29\t3194\n52.18.63.80\tSep-12 18:29\t1636\n66.220.9.50\tSep-12 18:29\t1543\n8.8.4.4\tSep-12 18:29\t696\n8.8.4.4\tSep-12 18:29\t744\n192.168.56.12\tSep-12 18:30\t642\n52.18.63.80\tSep-12 18:30\t1140\n8.8.4.4\tSep-12 18:30\t186\n192.168.56.12\tSep-12 18:32\t402\n192.168.56.12\tSep-12 18:35\t10500\n192.168.56.12\tSep-12 18:38\t201\n192.168.56.12\tSep-12 18:40\t10950\n192.168.56.12\tSep-12 18:43\t43\n8.8.8.8\tSep-12 18:43\t145\n192.168.56.12\tSep-12 18:46\t7401\n192.168.56.12\tSep-12 18:48\t744\n192.168.56.12\tSep-12 18:58\t244\n8.8.8.8\tSep-12 18:58\t145\n192.168.56.12\tSep-12 18:59\t600\n192.168.56.12\tSep-12 19:00\t402\n192.168.56.12\tSep-12 19:00\t1068\n52.18.63.80\tSep-12 19:00\t1184\n8.8.8.8\tSep-12 19:00\t372\n8.8.8.8\tSep-12 19:00\t186\n192.168.56.12\tSep-12 19:01\t646\n52.18.63.80\tSep-12 19:01\t1144\n8.8.8.8\tSep-12 19:01\t186\n192.168.56.12\tSep-12 19:08\t744\n192.168.56.12\tSep-12 19:10\t201\n192.168.56.12\tSep-12 19:14\t43\n8.8.8.8\tSep-12 19:14\t145\n192.168.56.12\tSep-12 19:22\t201\n192.168.56.12\tSep-12 19:28\t744\n192.168.56.12\tSep-12 19:29\t43\n8.8.8.8\tSep-12 19:29\t145\n192.168.56.12\tSep-12 19:32\t98\n8.8.8.8\tSep-12 19:32\t89\n13.80.12.54\tSep-12 19:37\t96\n192.168.56.12\tSep-12 19:37\t6643\n31.170.165.177\tSep-12 19:37\t980\n52.18.63.80\tSep-12 19:37\t3180\n8.8.4.4\tSep-12 19:37\t1590\n8.8.8.8\tSep-12 19:37\t558\n192.168.56.12\tSep-12 19:38\t2777\n192.168.56.12\tSep-12 19:38\t633\n2.16.4.203\tSep-12 19:38\t576\n31.170.165.177\tSep-12 19:38\t72\n52.18.63.80\tSep-12 19:38\t1184\n8.8.4.4\tSep-12 19:38\t372\n8.8.4.4\tSep-12 19:38\t864\n81.19.78.85\tSep-12 19:38\t561\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.0.2.15:4040/jobs/job?id\u003d634"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1649485346730_1497955374",
+      "id": "paragraph_1649485346730_1497955374",
+      "dateCreated": "2022-04-09 08:22:26.730",
+      "dateStarted": "2022-04-10 20:01:20.213",
+      "dateFinished": "2022-04-10 20:01:20.481",
+      "status": "FINISHED"
     }
   ],
   "name": "query_aggregated_dataframe",
